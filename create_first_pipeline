@@ -1,0 +1,60 @@
+Create Your First Jenkins Pipeline
+
+1: Access Jenkins
+Open your browser and go to:
+http://<your-ec2-public-ip>:8080
+Log in using your admin credentials.
+
+2: Install Required Plugins (if not already installed)
+Go to Manage Jenkins → Manage Plugins
+Under the Available tab, search for:
+Pipeline
+Git plugin
+Install them and restart Jenkins if prompted.
+
+3: Create a New Pipeline Job
+From the Jenkins dashboard, click “New Item”
+Enter a name (e.g., MyFirstPipeline)
+Select “Pipeline” and click OK
+
+4: Configure the Pipeline
+Scroll down to the Pipeline section
+Choose Pipeline script (default option)
+Paste this sample script:
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
+}
+
+
+Click Save
+
+5: Run the Pipeline
+Click “Build Now”
+You’ll see a build appear in the Build History
+Click on the build number → Console Output to see the logs
+
+Optional: Use a Git Repository
+If you want to pull your pipeline script from GitHub:
+
+In the Pipeline section, choose Pipeline script from SCM
+Select Git
+Enter your repo URL (use SSH if you’ve set up keys)
+Set the branch and script path (e.g., Jenkinsfile)
