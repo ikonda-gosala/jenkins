@@ -1,12 +1,13 @@
 1.Update System
 
-sudo apt update
-sudo apt upgrade -y
+sudo yum update
+sudo yum upgrade -y
 
 2.Install Java (Jenkins requires Java)
 
-sudo apt install openjdk-17-jdk -y
-java -version
+sudo amazon-linux-extras enable corretto17
+sudo yum install java-17-amazon-corretto -y
+java --version
 
 3.Add Jenkins Repository-For the Amazon linux
 
@@ -15,8 +16,7 @@ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 
 4.Install Jenkins
 
-sudo apt update
-sudo apt install jenkins -y
+sudo yum install jenkins -y
 
 5.Start and enable jenkins and check the status
 
