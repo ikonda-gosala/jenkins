@@ -21,6 +21,7 @@ Select “Pipeline” and click OK
 Scroll down to the Pipeline section
 Choose Pipeline script (default option)
 Paste this sample script:
+
 pipeline {
     agent any
 
