@@ -1,0 +1,36 @@
+1.Update System
+
+sudo apt update
+sudo apt upgrade -y
+
+2.Install Java (Jenkins requires Java)
+
+sudo apt install openjdk-17-jdk -y
+java -version
+
+3.Add Jenkins Repository-For the Amazon linux
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+4.Install Jenkins
+
+sudo apt update
+sudo apt install jenkins -y
+
+5.Start and enable jenkins and check the status
+
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+sudo systemctl status jenkins
+
+6.Access the Jenkins web interface
+http://<your-server-ip>:8080
+
+Note:
+1)Since jenkins will be on port 8080, so open the port number 8080 for the server which you install the jenkins on security groups.
+2)At first login the admin password will be available at this path "sudo cat /var/lib/jenkins/secrets/initialAdminPassword".
+3)Install suggested plugins
+4)Create your admin user
+5)Configure Jenkins instance
+
