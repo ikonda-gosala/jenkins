@@ -1,0 +1,24 @@
+pipeline {
+    agent {
+        docker { image 'node:16-alpine' }
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/ikonda-gosala/jenkins.git', branch: 'main'
+            }
+        }
+
+        stage('Run Jenkinsfile') {
+            steps {
+                script {
+                    echo "Jenkinsfile from repo will be executed automatically."
+                }
+                sh "node --version"
+            }
+
+        }
+    }
+}
+
