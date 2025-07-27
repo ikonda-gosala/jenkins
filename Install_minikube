@@ -1,0 +1,23 @@
+Install minikube on Amazon Linux 2 machine with t3.medium machine.
+
+1. Update the system and install docker.
+    sudo yum update -y
+    sudo yum install docker -y
+    sudo service docker start
+    sudo usermod -aG docker ec2-user # Add your user to the docker group
+    newgrp docker # Apply the group change immediately
+
+2.Install Kubectl: Kubectl is the command-line tool for interacting with Kubernetes clusters. Download and install it: 
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+3.Install Minikube: Download and install the Minikube binary:
+    curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+4.Start Minikube: Initialize Minikube, specifying the Docker driver:
+    minikube start --driver=docker
+
+5.Verify Minikube Status: Check the status of your Minikube cluster and verify that Kubectl can interact with it:
+    minikube status
+    kubectl get nodes
